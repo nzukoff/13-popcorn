@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
 
   def gethost
       @hostname = ENV['HOSTNAME'] || 'Anonymous'
+  end
 end
