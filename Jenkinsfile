@@ -11,17 +11,17 @@ pipeline {
         sh 'echo "hello world"'
       }
     }
-    stage('testing') {
-      steps {
-        sh '''rails test'''
-      }
-    }	
     stage('build docker') {
       steps {
         sh '''docker build -t nzukoff/popcorn:$BUILD_NUMBER .
 
 
 '''
+      }
+    }
+   stage('testing') {
+      steps {
+        sh '''docker run nzukoff/popcorn:9 rails test'''
       }
     }
     stage('docker push') {
