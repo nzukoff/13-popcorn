@@ -30,5 +30,10 @@ pipeline {
 docker push nzukoff/popcorn:$BUILD_NUMBER'''
       }
     }
+    stage('deplloy to k8s') {
+      steps {
+        sh '''envsubst < deployment.yaml | kubectl apply -f -'''
+      }
+    }
   }
 }
