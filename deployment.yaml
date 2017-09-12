@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
       - name: web
-        image: nzukoff/popcorn:12
+        image: nzukoff/popcorn:$BUILD_NUMBER
         ports:
         - containerPort: 3333
